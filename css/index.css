@@ -224,3 +224,24 @@ a[href].direct-link:focus:visited,
 :hover > a[href].direct-link:visited {
   color: #aaa;
 }
+
+
+#main {
+  display: grid;
+  grid-template:
+            "a a a" 40px
+            "b c c" 40px
+            "b c c" 40px / 1fr 1fr 1fr;
+}
+
+#main > aside {
+  grid-area: b;
+}
+
+#main > main {
+  grid-area: c;
+}
+
+#main > header {
+  grid-area: a;
+}
