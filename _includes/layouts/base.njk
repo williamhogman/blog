@@ -12,29 +12,8 @@
   </head>
   <body>
     <div id="main">
-      <header>
-	<h1 class="home"><a href="{{ '/' | url }}">{{ metadata.title }}</a></h1>
-	<nav>
-	  <ul class="nav">
-	    {%- for entry in collections.all | eleventyNavigation %}
-            <li class="nav-item{% if entry.url == page.url %} nav-item-active{% endif %}"><a href="{{ entry.url | url }}">{{ entry.title }}</a></li>
-	    {%- endfor %}
-	  </ul>
-	</nav>
-      </header>
-
-
-      <aside>
-	<h3>{{ metadata.title }}</h3>
-	<p>{{ metadata.description }}</p>
-      </aside>
-
-
-      <main{% if templateClass %} class="{{ templateClass }}"{% endif %}>
-	{{ content | safe }}
-      </main>
+      {{ content | safe }}
     </div>
-
     <footer></footer>
 
     <!-- Current page: {{ page.url | url }} -->
