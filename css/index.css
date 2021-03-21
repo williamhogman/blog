@@ -56,6 +56,7 @@ h3,
 h4,
 h5,
 h6 {
+    font-weight: normal;
   /* Change heading typefaces here */
   font-family: sans-serif;
   margin-top: 1.5rem;
@@ -109,6 +110,18 @@ img {
 }
 
 
+a:link {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:link:hover {
+    text-decoration: underline;
+}
+
+a:visited {
+    color: inherit;
+}
 
 
 
@@ -179,6 +192,9 @@ pre {
 
 
 /* Nav */
+.nav {
+    padding: 0;
+}
 .nav-item {
   display: inline-block;
   margin-right: 1em;
@@ -228,10 +244,10 @@ a[href].direct-link:focus:visited,
 
 
 .item {
-    border: 1px solid #888;
     padding: 0.5rem;
     background-color: #fff;
     border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
 #main {
@@ -242,6 +258,10 @@ a[href].direct-link:focus:visited,
 #main > aside {
     grid-column: 1;
     grid-row: 2 / span 2;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    background-color: #fff;
+    margin: clamp(0.75rem, 5vw, 3rem);
+    padding: clamp(0.75rem, 5vw, 3rem);
 }
 
 #main > main {
@@ -309,7 +329,7 @@ main.tmpl-post > * {
 }
 
 .tmpl-home > main .postslist > article {
-    border: 1px solid #888;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     padding: 0.5rem;
     background-color: #fff;
     border-radius: 5px;

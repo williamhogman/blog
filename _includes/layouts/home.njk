@@ -3,5 +3,29 @@ layout: layouts/base.njk
 templateClass: tmpl-home
 ---
 <main class="tmpl-home">
-{{ content | safe }}
+  <header>
+    <h1><a href="/">{{ metadata.title}}</a></h1>
+    {%- if title -%}
+    <h2>{{ title }}</h2>
+    {%- endif -%}
+    <nav>
+      <ul class="nav">
+	<li class="nav-item">
+	  <a href="https://whn.se/">About</a>
+	</li>
+	<li class="nav-item">
+	  <a href="https://twitter.com/w_hgm">Twitter</a>
+	</li>
+	<li class="nav-item">
+	  <a href="https://linkedin.com/in/whnse">Linkedin</a>
+	</li>
+	{%- for entry in collections.all | eleventyNavigation %}
+	<li class="nav-item{% if entry.url == page.url %} nav-item-active{% endif %}"><a href="{{ entry.url | url }}">{{ entry.title }}</a></li>
+	{%- endfor %}
+      </ul>
+    </nav>
+    <p>{{description or metadata.description}}</p>
+
+  </header>
+  {{ content | safe }}
 </main>
