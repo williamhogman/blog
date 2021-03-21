@@ -12,6 +12,7 @@ pagination:
   addAllPagesToCollections: true
 layout: layouts/home.njk
 eleventyComputed:
+  description: "Posts about {{ tag }}"
   title: Tagged “{{ tag }}”
 permalink: /tags/{{ tag }}/
 ---

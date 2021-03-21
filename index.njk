@@ -4,13 +4,14 @@ eleventyNavigation:
   key: Home
   order: 1
 ---
+<header>
+  <h1>{{ metadata.title}}</h1>
+  <p>{{metadata.description}}</p>
+</header>
 
 {% set maxPosts = collections.posts.length | min(10) %}
-<h1>{{ metadata.title}}</h1>
-<p>{{metadata.description}}</p>
-
 {% set postslist = collections.posts | head(-10) %}
 {% set postslistCounter = collections.posts | length %}
 {% include "postslist.njk" %}
 
-<p><a href="{{ '/posts/' | url }}">Archive</a></p>
+
