@@ -261,7 +261,7 @@ a[href].direct-link:focus:visited,
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     background-color: #fff;
     margin: clamp(0.75rem, 5vw, 3rem);
-    padding: clamp(0.75rem, 5vw, 3rem);
+    padding: clamp(0.375rem, 2.5vw, 1.5rem);
 }
 
 #main > main {

@@ -9,7 +9,13 @@ const metagen = require('eleventy-plugin-metagen');
 
 module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
-  eleventyConfig.addPlugin(pluginSyntaxHighlight);
+    eleventyConfig.addPlugin(pluginSyntaxHighlight);
+    eleventyConfig.addMarkdownHighlighter((str, language) => {
+	if (language === "mermaid") {
+	    return `<pre class="mermaid">${str}</pre>`;
+	}
+	return highlighter(str, language);
+    });
   eleventyConfig.addPlugin(pluginNavigation);
 
 
