@@ -34,6 +34,7 @@
   },
   "dependencies": {
     "eleventy-plugin-metagen": "^1.1.0",
+    "mermaid-it": "^0.5.2",
     "typeset": "^0.3.1"
   }
 }

@@ -6,18 +6,12 @@ const pluginNavigation = require("@11ty/eleventy-navigation");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 const metagen = require('eleventy-plugin-metagen');
+const MarkdownItMermaid = require("mermaid-it");
 
 module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
     eleventyConfig.addPlugin(pluginSyntaxHighlight);
-    eleventyConfig.addMarkdownHighlighter((str, language) => {
-	if (language === "mermaid") {
-	    return `<pre class="mermaid">${str}</pre>`;
-	}
-	return highlighter(str, language);
-    });
-  eleventyConfig.addPlugin(pluginNavigation);
-
+    eleventyConfig.addPlugin(pluginNavigation);
 
    eleventyConfig.addPlugin(metagen);
 
@@ -88,6 +82,14 @@ module.exports = function(eleventyConfig) {
     permalink: true,
     permalinkClass: "direct-link",
     permalinkSymbol: "#"
+  }).use(MarkdownItMermaid,{
+      startOnLoad: false,
+      securityLevel: true,
+      theme: "default",
+      flowchart:{
+	  htmlLabels: false,
+	  useMaxWidth: true,
+      }
   });
   eleventyConfig.setLibrary("md", markdownLibrary);
 
