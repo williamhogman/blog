@@ -4,8 +4,8 @@ date: 2021-05-04
 layout: layouts/post.njk
 description: |
   In this first part of a series about building a key-value
-  store in Rust with Kafka and sled, In this first part we complete the
-  design of the service.
+  store in Rust with Kafka and sled.
+  We completed the design of the service and reason about the choice of tech.
 ---
 
 In my work at building the data-platform at Creandum we needed a key
@@ -170,15 +170,12 @@ will be a thin layer between the different modules, it has the
 advantage of making the code more adaptable.
 
 
-```mermaid
-graph TD
-A[Kafka] --> B[Service]
-C[RPC] --> B[Service]
-B[Service] --> D[Storage]
+```
+[Kafka] --> [Service]
+[RPC] --> [Service]
+[Service] --> [Storage]
 ```
 
 With the design done, it seems like a good point to take a break
 before continuing on with Part 2 - where we will start implementing
-our service
-
-
+our service. When you're ready to start implementing our service [start reading part 2](posts/building-a-kafka-backed-key-value-store-in-rust-part-2-implementation)
