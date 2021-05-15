@@ -3,18 +3,18 @@ title: "Push-down automations in Rust"
 date: 2021-05-13
 layout: layouts/post.njk
 description: |
-  Push-down automations, essentially finite state machines with a
+  Push-down automatons, essentially finite state machines with a
   Stack, are in adddition to being theoretically interesting useful
   for a number of tasks, such as ensuring that parenthesises are balanced in a string
 ---
 
-Push-down automations are a formal model for representing limited
+Push-down automatons are a formal model for representing limited
 computation. They are similar to finite state machines, but add a
 stack which is manipulated by the machine. In a traditional finite
 state machine the current state, and the input signal decide the
 next state that the machine advances to.
 
-In a push down automation things get more complicated, our transitions
+In a push down automaton things get more complicated, our transitions
 include can either push, pop or do nothing with the stack, and when
 considering wheter to apply a transition, in addition to the current
 state, and input signal we may also take into account the value at the
@@ -27,7 +27,7 @@ parsing. In fact a regular expression has, atleast in theory, a
 matching finite state machine. What regular expressions [famously](https://stackoverflow.com/a/1732454)
 cannot do is parse HTML. In a strict regular expression environment we
 cannot express with any sort of nesting. When we add a stack, as is
-the case with push-down automations, we suddenly can.
+the case with push-down automatons, we suddenly can.
 
 At this point regular expressions and finite state machines are nearly ubiquitous in modern
 programming languages. So in order to experiment with them we need
@@ -38,7 +38,7 @@ generalizing then leads to poor performance. There is one mainstream
 language that is an exception to this and that is Rust. So lets try
 building it in Rust and if we can manage to properly model everything with its type system.
 
-From the mathematical definition of a push-down automation we know
+From the mathematical definition of a push-down automaton we know
 that there are three different alphabets (essentially enums) involved, one for the
 values on the stack, one for the state of the machine itself and for
 the inputs. Of these, the stack seems the easiest to lets define what
@@ -88,7 +88,7 @@ impl <StackAlphabet: Clone> PDAStack<StackAlphabet> {
 ```
 
 In the above code we implement a new struct `PDAStack` short for push
-down automation stack, which implements the logic for handling our
+down automaton stack, which implements the logic for handling our
 stack ops as well as a peek operation, getting the value at the top of
 the stack. It is interesting to note the `repr(transparent)`
 attributes which ask the compiler to guarantee that the struct is
@@ -100,7 +100,7 @@ doesn't affect CPU or memory use at all.
 
 Now with the stack operations defined we can try to define a type to
 represent the destination side of a transition. When a push-down
-automation receives input it both change the internal state (like an
+automaton receives input it both change the internal state (like an
 FSM) and manipulate the stack. Lets represent this a rust struct
 
 ```rust
@@ -114,9 +114,9 @@ touch the stack we also model that as an option.
 
 Now with the destination out of the way we need to come up with the
 source side of the rule. The source side is what is used to come up
-with the destination side of a transition, in a push-down automation
+with the destination side of a transition, in a push-down automaton
 it is defined as the current state, the value at the top of the stack
-and the input received. In our version of the push down automation the
+and the input received. In our version of the push down automaton the
 stack may be empty so we model the stack value using an option.
 
 ```rust
@@ -124,7 +124,7 @@ struct Source<State, StackAlphabet, InputAlphabet>(State, Option<StackAlphabet>,
 ```
 
 Now with all the types defined we can finally define a `trait` (think
-`interface` but better), to represent Push-down automations.
+`interface` but better), to represent Push-down automatons.
 
 ```rust
 trait PDA {
@@ -146,8 +146,8 @@ One thing that is important to note here is that we don't actually
 define any operations for instances of `PDA`s just a function that
 should be defined for the structure.
 
-Having now defined the interface contracts for push-down automations time has come to
-actually implement logic for running a push-down automation.
+Having now defined the interface contracts for push-down automatons time has come to
+actually implement logic for running a push-down automaton.
 
 ```rust
 struct PDARunner<T: PDA> {
@@ -201,13 +201,13 @@ it step by step. First we have a helper method `update_state` which
 updates the state using the passed in option, if it exists.
 
 Then we have advance which is the core of what the push-down
-automation needs to do. First it creates the source value from the top
+automaton needs to do. First it creates the source value from the top
 value of the stack, the input signal and the current state. Then it
 calls the advance function of the particular `PDA` that is associated
 with this runner. We get the result of the advance function and change
 the state if it needs changing, using our helper. The stack operation
 received is simply passed in to our stack implementation. With that
-the core logic for the push-down automation is done.
+the core logic for the push-down automaton is done.
 
 Finally, on to our last function, the run function. It simply takes an
 iterable of things that can be turned into members of our input
@@ -229,11 +229,11 @@ PDARunner, but we need to add a sized type constraint to keep the rust
 compiler happy.
 
 And that's it. We can now use our code to solve a problem with a push
-down automation. The problem that I'd like to solve is determining
+down automaton. The problem that I'd like to solve is determining
 wheter or not a string containing gparenthesises is balanced or not. For instance, the
 string `(hello (world))` is balanced while, `(hello (world)` is not.
 
-To solve this problem we need a push down automation where the inputs
+To solve this problem we need a push down automaton where the inputs
 are left parens, right parens and other characters. The category
 *other* *characters* eists simply to allow us to ignore irrelevant
 characters. When we find a left parenthesises we push to the stack and
@@ -256,7 +256,7 @@ The transitions will then look like this:
   right parenthesises, we should go to the error state.
 
 Now when if we pass in a string of characters to our push-down
-automation, we know that it's parenthesises are balanced if and only
+automaton, we know that it's parenthesises are balanced if and only
 if the stack is empty and the state is OK.
 
 
@@ -324,7 +324,7 @@ the specifications above, making sure to make the default state
 `OK`. Then we declare conversion from chracters into our input value
 type, making `(` and `)` to their corresponding input values, while
 all other values are mapped to `Other`. Then we declare our push down
-automation itself with an empty struct and a implementation of the PDA
+automaton itself with an empty struct and a implementation of the PDA
 trait. In the trait we set our associated types to the enums declared
 just before and then declare the advance method based on the rules
 from earlier.
@@ -343,7 +343,7 @@ PDARunner { state: Ok, stack: PDAStack { vec: [] } }
 ```
 
 The state is OK and the stack is empty, which means the parenthesis
-are balanced and our push down automation works as intended.
+are balanced and our push down automaton works as intended.
 
 Now the question remains, this was a lot of code and a ton of types is
 this a good way of determining if a string has its parenthesies
