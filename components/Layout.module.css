@@ -1,0 +1,15 @@
+.layout {
+  padding: min(1vh, 1rem) min(1vw, 1rem);
+  grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+  gap: 1.5rem;
+  display: grid;
+}
+
+.layout :global(:first-child)  {
+  margin-top: 0;
+}
+
+.header {
+  grid-column: 1/-1;
+  justify-self: center;
+}

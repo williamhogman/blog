@@ -1,0 +1,6 @@
+.postBubble:first-of-type {
+  grid-column: 1/-1;
+  max-width: 36rem;
+  margin-bottom: 2rem;
+  justify-self: center;
+}

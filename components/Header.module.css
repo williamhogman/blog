@@ -1,0 +1,19 @@
+.heading {
+  margin: 0;
+  font-weight: 300;
+  font-size: 64px;
+}
+
+.small {
+  font-size: 32px !important;
+  margin-bottom: 0.5rem;
+}
+
+.tagline {
+  margin: 0;
+  font-style: italic;
+}
+
+.link {
+  margin-right: 1em;
+}

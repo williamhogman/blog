@@ -1,0 +1,18 @@
+.img {
+  padding-right: 0.75rem;
+  width: 7.5rem;
+  flex: 0 0 auto;
+  align-self: center;
+}
+
+.section {
+  display: flex;
+  flex-direction: row;
+}
+
+.imgwrap {
+  flex-grow: 0;
+  flex-shrink: 0;
+  padding-right: 1rem;
+  flex-basis: 124px;
+}
