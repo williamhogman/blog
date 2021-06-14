@@ -1,9 +1,11 @@
 import fs from "fs/promises";
 import path from "path";
 import matter from "gray-matter";
-import remark from "remark";
-import html from "remark-html";
-import highlight from 'remark-highlight.js'
+import unified from 'unified'
+import markdown from 'remark-parse'
+import highlight from 'rehype-highlight'
+import remark2rehype from "remark-rehype"
+import stringify from 'rehype-stringify'
 
 const postsDirectory = path.join(process.cwd(), "posts");
 
@@ -55,15 +57,18 @@ function notNull<TValue>(value: TValue | null | undefined): value is TValue {
 }
 
 export async function getBackendPosts(): Promise<Post[]> {
-  const fileNames = await fs.readdir(postsDirectory);
+  const fileNames = await readPostsDir()
   const allPostsData = (await Promise.all(fileNames.map(readPost))).filter(notNull);
   return allPostsData.sort((a, b) =>
-    a.date.getTime() - b.date.getTime()
+    (b.date.getTime() - a.date.getTime())
   );
 }
 
+export async function getBackendPostsWithContent(): Promise<PostWithHTML[]> {
+  return await Promise.all((await getPostIds()).map(getPostData))
+}
+
 export async function getSortedPostsData(): Promise<ClientSidePost[]> {
-  
   return (await getBackendPosts()).map(clientizePost).sort((a, b) => {
       if (a.date < b.date) {
           return 1;
@@ -75,16 +80,16 @@ export async function getSortedPostsData(): Promise<ClientSidePost[]> {
   })
 }
 
+function readPostsDir(): Promise<string[]> {
+  return fs.readdir(postsDirectory)
+}
 
-export async function getAllPostIds(): Promise<{ params: { id: string; }}[]> {
-  const fileNames = await fs.readdir(postsDirectory);
-  return fileNames.map((fileName) => {
-    return {
-      params: {
-        id: fileName.replace(/\.md$/, ""),
-      },
-    };
-  });
+async function getPostIds(): Promise<string[]> {
+  return (await readPostsDir()).map(x => x.replace(/\.md$/, ""));
+}
+
+export async function getAllPostIds(): Promise<{ params: { id: string; } }[]> {
+  return (await getPostIds()).map(id => ({ params: { id }}))
 }
 
 export async function getPostData(id: string): Promise<PostWithHTML> {
@@ -92,15 +97,22 @@ export async function getPostData(id: string): Promise<PostWithHTML> {
   const fileContents = await fs.readFile(fullPath, "utf8");
   const matterResult = matter(fileContents);
 
-  const processedContent = await remark()
-    .use(highlight)
-    .use(html)
-    .process(matterResult.content);
-  const contentHtml = processedContent.toString();
+  const contentHtml = await processMarkdown(matterResult.content);
  
   return {
     id,
     contentHtml,
     ...(matterResult.data as FrontMatter),
   };
+}
+
+const engine = unified()
+  .use(markdown)
+  .use(remark2rehype)
+  .use(highlight)
+  .use(stringify);
+
+async function processMarkdown(md: string): Promise<string> {
+  const res = await engine.process(md);
+  return String(res)
 }
