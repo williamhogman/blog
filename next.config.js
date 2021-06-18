@@ -1,4 +1,6 @@
 module.exports = {
+  reactStrictMode: true,
+  webpack5: true,
   async redirects() {
     return [
       {
@@ -25,7 +27,7 @@ module.exports = {
       },
       {
         source: "/k-means-clustering-in-r-c24115efdc82",
-        destination: "/posts/k-means-clustering-in-r-c24115efdc82",
+        destination: "/posts/k-means-clustering-in-r",
         permanent: true,
       },
     ];

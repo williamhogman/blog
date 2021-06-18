@@ -6,7 +6,7 @@ import markdown from 'remark-parse'
 import highlight from 'rehype-highlight'
 import remark2rehype from "remark-rehype"
 import stringify from 'rehype-stringify'
-
+ 
 const postsDirectory = path.join(process.cwd(), "posts");
 
 export interface Post extends FrontMatter {
