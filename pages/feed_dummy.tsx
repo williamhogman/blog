@@ -8,6 +8,6 @@ export default function FeedDummy() {
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const data = await generateRss();
-  await fs.writeFile("./rss.xml", data);
+  await fs.writeFile(new URL("./rss.xml", import.meta.url), data);
   return { props: {} };
 };
