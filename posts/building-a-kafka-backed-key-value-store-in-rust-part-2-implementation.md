@@ -3,7 +3,7 @@ title: "Building a Kafka based key-value store in Rust - Part 2: Implementation"
 date: 2021-05-10
 layout: layouts/post.njk
 description: |
-  The second part in the series implmeneting a kafka based key-value
+  The second part in the series implementing a kafka based key-value
   store in Rust. In this part we finally start writing code and
   implement the logic for storage as well as Kafka.
 ---
