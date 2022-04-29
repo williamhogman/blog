@@ -1,8 +1,8 @@
+import "highlight.js/styles/github.css";
 import { GetStaticPaths, GetStaticProps } from "next";
-import PostLayout from "../../components/PostLayout";
 import AboutTheAuthor from "../../components/AboutTheAuthor";
+import PostLayout from "../../components/PostLayout";
 import { getAllPostIds, getPostData } from "../../lib/posts";
-import "highlight.js/styles/solarized-light.css";
 
 type PostParams = {
   id: string;

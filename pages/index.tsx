@@ -1,12 +1,11 @@
-import Layout from "../components/Layout";
-import { getSortedPostsData } from "../lib/posts";
-import Link from "next/link";
-import React from "react";
-import Post from "../components/Post";
-import Bubble from "../components/Bubble";
-import type { ClientSidePost } from "../lib/posts";
-import styles from "./index.module.css";
 import { NextSeo } from "next-seo";
+import React from "react";
+import Bubble from "../components/Bubble";
+import Layout from "../components/Layout";
+import Post from "../components/Post";
+import type { ClientSidePost } from "../lib/posts";
+import { getSortedPostsData } from "../lib/posts";
+import styles from "./index.module.css";
 
 export async function getStaticProps() {
   const allPostsData = await getSortedPostsData();

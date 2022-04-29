@@ -17,7 +17,7 @@ For an API let's use GRPC, there are many options, of course, but GRPC is is a g
 
 Now with that out of the way we need to specify our GRPC service using a the protobuf IDL. Let's place the file in `proto/kvs2.proto`
 
-```protobuf
+```
 syntax = "proto3";
 package kvs2;
 
