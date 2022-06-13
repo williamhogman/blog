@@ -3,9 +3,12 @@ title: "Web components - a short introduction"
 date: 2022-06-13
 layout: layouts/post.njk
 description: |
+Web components have experienced something of a second wind in recent years. This article takes a look at the possibilities and limitations of web components in the context of the move back towards native web APIs.
 ---
 
-Web components have experienced something of a second wind in recent years. The concept of building custom elements isn't new and was first tried in the early days of the web but was lost in the complexity of XML. A new attempt was made in the early 2010s work starting in standards bodies. In 2013 Google released Polymer, a framework for building web components that also polyfilled the web-components functionality where needed. Polymer didn't really reach mainstream adoption because it didn't really address issues that were relevant at that time, specifically databinding and improving the JavaScript using build-time tooling. People cared little for the benefits using what would one day be a built-in library. Now the pendulum is swinging back the other way, with browsers catching up with standards and most browsers being on an ever-green update model. The pendulum is now swing the other way, away from complicated build-time logic and towards simply using what the browser supports.
+Web components have experienced something of a second wind in recent years. The concept of building custom elements isn't new and was first tried in the early days of the web but was lost in the complexity of XML. A new attempt was made in the early 2010s work starting in standards bodies. In 2013 Google released Polymer, a framework for building web components that also polyfilled the web-components functionality where needed. Polymer didn't really reach mainstream adoption because it didn't really address issues that were relevant at that time, specifically databinding and improving the JavaScript using build-time tooling. People cared little for the benefits using what would one day be a built-in library.
+
+Now the pendulum is swinging back the other way, with browsers catching up with standards and most browsers being on an ever-green update model. The pendulum is now swing the other way, away from complicated build-time logic and towards simply using what the browser supports.
 
 You could today at least in theory use web components without any kind of library. Let's give it a by making a custom element (a web component) that looks like `h1`.
 
