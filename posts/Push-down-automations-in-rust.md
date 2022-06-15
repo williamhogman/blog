@@ -1,5 +1,5 @@
 ---
-title: "Push-down automations in Rust"
+title: "Push-down automatons in Rust"
 date: 2021-05-13
 layout: layouts/post.njk
 description: |
@@ -96,7 +96,6 @@ optimized away. Rust usually optimizes the memory layout for
 single-member structs into that of it's member, essentially making the
 struct disappear. This means our stack abstraction is zero-cost, it
 doesn't affect CPU or memory use at all.
-
 
 Now with the stack operations defined we can try to define a type to
 represent the destination side of a transition. When a push-down
@@ -235,7 +234,7 @@ string `(hello (world))` is balanced while, `(hello (world)` is not.
 
 To solve this problem we need a push down automaton where the inputs
 are left parens, right parens and other characters. The category
-*other* *characters* eists simply to allow us to ignore irrelevant
+_other_ _characters_ eists simply to allow us to ignore irrelevant
 characters. When we find a left parenthesises we push to the stack and
 when we find a right parenthesises we pop from the stack. Because we
 are only considering one type of parenthesises we only need a single
@@ -243,22 +242,22 @@ type of data on the stack. Finally to keep track of when errors occur
 we need an OK state and a an error state.
 
 The transitions will then look like this:
-  - If we are in the error state, we ignore all everything and stay in
+
+- If we are in the error state, we ignore all everything and stay in
   the error state. This is what is said to be a terminal state.
-  - If we receive an *other* *character* input we ignore it nothing
+- If we receive an _other_ _character_ input we ignore it nothing
   changes. It is as if the input was never received at all, we might call it a no-op.
-  - If we are stil in the OK state, receiving a left parenthesises, we
+- If we are stil in the OK state, receiving a left parenthesises, we
   push a parenthesis marker to the stack.
-  - If we are in the OK state, have a parenthesis marker on the top of
+- If we are in the OK state, have a parenthesis marker on the top of
   the stack, and receive a right parenthes, we pop a value from the
   stack.
-  - If we are in the OK state, the stack is empty and we receive a
+- If we are in the OK state, the stack is empty and we receive a
   right parenthesises, we should go to the error state.
 
 Now when if we pass in a string of characters to our push-down
 automaton, we know that it's parenthesises are balanced if and only
 if the stack is empty and the state is OK.
-
 
 To not pollute the rest of our file we can do it in
 its own module, using the `mod` syntax. In a production environment it
@@ -330,6 +329,7 @@ just before and then declare the advance method based on the rules
 from earlier.
 
 We can now declare a main function outside them like this:
+
 ```rust
 fn main() {
     let machine = BalancedParensPDA::run("()".chars());
@@ -338,6 +338,7 @@ fn main() {
 ```
 
 This results in the following output:
+
 ```rust
 PDARunner { state: Ok, stack: PDAStack { vec: [] } }
 ```
