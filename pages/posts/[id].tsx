@@ -1,5 +1,6 @@
 import "highlight.js/styles/github.css";
 import { GetStaticPaths, GetStaticProps } from "next";
+import { NextSeo } from "next-seo";
 import AboutTheAuthor from "../../components/AboutTheAuthor";
 import PostLayout from "../../components/PostLayout";
 import { getAllPostIds, getPostData } from "../../lib/posts";
@@ -41,15 +42,32 @@ function date(d: number): string {
 
 export default function Post({ postData }: PostProps) {
   return (
-    <PostLayout>
-      <h1>{postData.title}</h1>
-      <time dateTime={date(postData.date)}>{date(postData.date)}</time>
-      <div
-        className="transparent"
-        style={{ display: "contents" }}
-        dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
+    <>
+      <NextSeo
+        twitter={{
+          handle: "w_hgm",
+          site: "Will vs Technology",
+        }}
+        title={
+          postData.title + " - Will vs Technology - William Rudenmalm's blog"
+        }
+        description={postData.description}
+        openGraph={{
+          type: "website",
+          title: postData.title,
+          description: postData.description,
+        }}
       />
-      <AboutTheAuthor />
-    </PostLayout>
+      <PostLayout>
+        <h1>{postData.title}</h1>
+        <time dateTime={date(postData.date)}>{date(postData.date)}</time>
+        <div
+          className="transparent"
+          style={{ display: "contents" }}
+          dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
+        />
+        <AboutTheAuthor />
+      </PostLayout>
+    </>
   );
 }

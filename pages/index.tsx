@@ -1,5 +1,4 @@
 import { NextSeo } from "next-seo";
-import React from "react";
 import Bubble from "../components/Bubble";
 import Layout from "../components/Layout";
 import Post from "../components/Post";
@@ -24,7 +23,6 @@ export default function Home({ allPostsData }: Props) {
       <NextSeo
         openGraph={{
           type: "website",
-          url: "https://www.example.com/page",
           title: "Will vs Technology - William Rudenmalm's blog",
           description:
             "Where I, William Rudenmalm, document my quixotic struggle against technology.",
