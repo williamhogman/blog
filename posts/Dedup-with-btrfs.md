@@ -1,7 +1,7 @@
 ---
 title: Deduplication with BTRFS
 description: BTRFS is an alternative filesystem for Linux that provides copy-on-write support which enables deduplication.
-date: 2012-08-06
+date: 2022-08-06
 layout: layouts/post.njk
 ---
 
@@ -25,13 +25,13 @@ DB_SIZE=$((1024*1024*256)) # 256Mb in bytes
 
 Next, we need to volume UUID to tell `bees` where it should perform deduplication. We get this using the `btrfs` command line tool.
 
-```
+```bash
 btrfs filesystem show /
 ```
 
 Finally, we're ready to go. We only need to start the service.
 
-```
+```bash
 systemctl enable --now bees@YOURIDHERE
 ```
 
