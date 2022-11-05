@@ -8,9 +8,7 @@ function Post({ post: { date, title, id, description } }: Props) {
   return (
     <>
       <Link href={`/posts/${id}`}>
-        <a>
-          <h3>{title}</h3>
-        </a>
+        <h3>{title}</h3>
       </Link>
       {date ? (
         <time dateTime={new Date(date).toISOString()}>

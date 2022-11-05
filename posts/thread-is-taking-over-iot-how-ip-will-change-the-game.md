@@ -3,7 +3,7 @@ title: "Thread is taking over IoT: How IP will change the game"
 date: 2022-11-05
 description: |
   Over recent years IoT has finally gained widespread adoption, both in the industry and among enthusiasts. Most devices today are using Bluetooth Low Energy,
-WiFi, Zigbee or Z-wave. All of these have different benefits and downsides. None of the options however fulfill the criteria of being low-power and easily integrated into an IP network. Thread allows low-power devices use IP networking opening the door for innovation in the IoT space.
+  WiFi, Zigbee or Z-wave. All of these have different benefits and downsides. None of the options however fulfill the criteria of being low-power and easily integrated into an IP network. Thread allows low-power devices use IP networking opening the door for innovation in the IoT space.
 ---
 
 Over recent years IoT has finally gained widespread adoption, both in the industry and among enthusiasts. Most devices today are using Bluetooth Low Energy,

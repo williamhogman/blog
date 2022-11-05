@@ -1,8 +1,6 @@
-import Head from "next/head";
-import Link from "next/link";
 import { PropsWithChildren } from "react";
-import styles from "./Layout.module.css";
 import Header from "./Header";
+import styles from "./Layout.module.css";
 
 type Props = PropsWithChildren<{ home?: boolean }>;
 export default function Layout({ children, home }: Props) {

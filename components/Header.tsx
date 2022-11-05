@@ -1,5 +1,5 @@
-import styles from "./Header.module.css";
 import Link from "next/link";
+import styles from "./Header.module.css";
 
 export default function Header({
   className,
@@ -16,9 +16,7 @@ export default function Header({
   );
   return (
     <header className={[className, styles.header].filter((x) => !!x).join(" ")}>
-      <Link href="/">
-        <a>{header}</a>
-      </Link>
+      <Link href="/">{header}</Link>
       <p className={styles.tagline}>
         Where I, <a href="https://whn.se/">William Rudenmalm</a>, document my
         quixotic struggle against technology.
