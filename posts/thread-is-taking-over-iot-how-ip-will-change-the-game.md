@@ -1,0 +1,18 @@
+---
+title: "Thread is taking over IoT: How IP will change the game"
+date: 2022-11-05
+description: |
+  Over recent years IoT has finally gained widespread adoption, both in the industry and among enthusiasts. Most devices today are using Bluetooth Low Energy,
+WiFi, Zigbee or Z-wave. All of these have different benefits and downsides. None of the options however fulfill the criteria of being low-power and easily integrated into an IP network. Thread allows low-power devices use IP networking opening the door for innovation in the IoT space.
+---
+
+Over recent years IoT has finally gained widespread adoption, both in the industry and among enthusiasts. Most devices today are using Bluetooth Low Energy,
+WiFi, Zigbee or Z-wave. All of these have different benefits and downsides. None of the options however fulfill the criteria of being low-power and easily integrated into an IP network. Something this has led to a landscape where each manufacturer has to have its own auxiliary devices to connect the device to the wider network, or simply just waste power connecting to an existing WiFi network.
+
+In the background, the [Thread group](https://threadgroup.org/) has developed a standard that is both low-power and based on IPv6. Building on the underlying IEEE 802.15.4 standard (which also forms the basis for Zigbee) and adding support for IPv6. The Thread protocol has now taken shape. The nodes in a thread network form a mesh for reliably sending and receiving IP packets. In addition to ordinary nodes, some nodes take up the role of a border router. The border router connects the thread network to other networks usually using Wifi or Ethernet. Effectively joining the Thread nodes with the internet as well as the local network. This means that lower-power devices could connect to the internet to receive Over-The-Air updates from a central server. Another interesting feature is that Thread supports multiple border routers. Importantly, having multiple border routers means that the network can be partitioned so that if one router cannot connect over Thread to another, the routers can coordinate on the surrounding, non-Thread network.
+
+Does this mean that everyone will have to buy a ton of Thread border routers to cover their whole house? Maybe, while we can expect mesh networking to work as well as it does with Zigbee, we can add more border routers to improve performance, and because of the support for multiple border routers, this functionality is very easy to set up. Many devices are already shipping with support for becoming thread border routers. The 3rd generation Apple TV 4K is shipping with support for it, as is the Apple HomePod mini, the Amazon Echo and many WiFi routers from both Amazon and Google.
+
+Very shortly a large percentage of homes will be wired up for Thread. This opens up new possibilities for everyone, it will be trivial to build a connected device that avoids the compromises that WiFi SoCs, like the ESP32 force us to make. One upcoming use of Thread will be the Matter smart device standard that standardizes the protocol between all kinds of smart devices, thread by being IP-based becomes an implementation detail for the Matter protocol, it works the same way with Bluetooth, WiFi and Thread.
+
+There is one key take-home from all this: We're getting the OSI model for small low-power devices, and we're getting it very soon. This will unlock a massive amount of innovation in the space of connected devices. Big tech, having created this huge easily accessible platform, is now facing cutbacks just as the time comes to start investing. This leaves room for upstarts to come in and start building. The field is open and who the winners will be remains to be seen.
