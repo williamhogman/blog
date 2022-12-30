@@ -19,7 +19,8 @@ function AboutTheAuthor() {
         architecture and velocity. In the field of computer science, his
         expertise lies in distributed systems, scalability and machine learning.
         Among the technologies William is particularly excited about are
-        Kubernetes, Rust, nats, Kafka and neo4j.
+        Kubernetes, Rust, nats, Kafka and neo4j. William works for the boutique
+        engineering consultancy <a href="https://sobel.io">Sobel.IO</a>.
       </p>
     </section>
   );
