@@ -1,0 +1,13 @@
+.publicationInfo {
+
+}
+
+.publicationInfo dt {
+    font-weight: bold;
+    margin: 0;
+    margin-bottom: 0.5em;
+}
+.publicationInfo dd {
+    margin: 0;
+    margin-bottom: 1em;
+}
