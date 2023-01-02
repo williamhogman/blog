@@ -20,7 +20,10 @@ export default function AboutPage() {
               Limited Company)
             </dd>
             <dt>
-              Responsible editor <i>(sv. ansvarig utgivare)</i>
+              Responsible editor{" "}
+              <i lang="sv">
+                (<abbr title="swedish">sv.</abbr> ansvarig utgivare)
+              </i>
             </dt>
             <dd className="m-0">
               <a href="https://whn.se">William Rudenmalm</a>
