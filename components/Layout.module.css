@@ -5,6 +5,12 @@
   display: grid;
 }
 
+@media (max-device-width: 767px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
 .layout :global(:first-child)  {
   margin-top: 0;
 }
