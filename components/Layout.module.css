@@ -17,5 +17,10 @@
 
 .header {
   grid-column: 1/-1;
-  justify-self: center;
+}
+
+@media (min-device-width: 768px) {
+  .header {
+    justify-self: center;
+  }
 }

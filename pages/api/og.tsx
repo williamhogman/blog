@@ -19,7 +19,8 @@ export default function handler(req: NextRequest) {
       (
         <div
           style={{
-            backgroundColor: "black",
+            backgroundColor: "white",
+            color: "black",
             backgroundSize: "150px 150px",
             height: "100%",
             width: "100%",
@@ -37,16 +38,19 @@ export default function handler(req: NextRequest) {
               alignItems: "center",
               justifyContent: "center",
               justifyItems: "center",
+              fontSize: 50,
+              fontStyle: "italic",
+              fontWeight: 300,
             }}
           >
             Will vs Tech
           </div>
           <div
             style={{
-              fontSize: 60,
+              fontSize: 40,
               fontStyle: "normal",
               letterSpacing: "-0.025em",
-              color: "white",
+              color: "black",
               marginTop: 30,
               padding: "0 120px",
               lineHeight: 1.4,

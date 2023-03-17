@@ -1,4 +1,16 @@
+import type { Metadata } from "next";
 import styles from "./about.module.css";
+
+export const metadata: Metadata = {
+  title: "About the site",
+  description: `Will vs Technology is where the author, William
+          Rudenmalm, publishes notes on his work on technology. The site and its
+          content is owned and operated by Sobel.IO`,
+  openGraph: {
+    url: `https://blog.whn.se/about`,
+  },
+};
+
 export default function AboutPage() {
   return (
     <>

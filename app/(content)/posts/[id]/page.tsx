@@ -1,9 +1,10 @@
 import "highlight.js/styles/github.css";
-import { GetStaticPaths } from "next";
+import { GetStaticPaths, Metadata } from "next";
 import { notFound } from "next/navigation";
 import AboutTheAuthor from "../../../../components/AboutTheAuthor";
 import { getAllPostIds } from "../../../../lib/posts";
 import { getData } from "./getData";
+
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = await getAllPostIds();
   return {
@@ -11,6 +12,34 @@ export const getStaticPaths: GetStaticPaths = async () => {
     fallback: false,
   };
 };
+
+export async function generateMetadata({
+  params: { id },
+}: {
+  params: { id: string };
+}): Promise<Metadata> {
+  const { notFound: nf, postData } = await getData(id);
+  if (nf) {
+    return notFound();
+  }
+  return {
+    title: postData.title,
+    description: postData.description,
+    openGraph: {
+      type: "article",
+      authors: ["William Rudenmalm"],
+      publishedTime: new Date(postData.date).toISOString(),
+      url: `https://blog.whn.se/posts/${id}`,
+      images: [
+        {
+          url: `https://blog.whn.se/api/og?title=${encodeURIComponent(
+            postData.title
+          )}`,
+        },
+      ],
+    },
+  };
+}
 
 interface PostProps {
   params: {
