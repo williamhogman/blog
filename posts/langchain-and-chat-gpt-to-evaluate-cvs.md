@@ -174,8 +174,24 @@ if __name__ == "__main__":
 
 In this section of the code, we first check if the user has provided a path to a CV file as a command line argument. If not, the program prints an error message and exits. Otherwise, it proceeds to evaluate the CV's suitability for a list of predefined job titles. For each job title, the `determine_suitabilty_for_cv_file` function is called with the file path and the job title as input. The function returns the suitability rating and reasoning, which are then printed to the console. This allows users to quickly see how well the CV fits each of the predefined job roles.
 
-In conclusion, we have demonstrated how to build a comprehensive solution for evaluating the suitability of a candidate's CV for different job roles using Large Language Models (LLMs). By combining text extraction, CV summarization, and candidate evaluation, we can efficiently and effectively assess a candidate's fit for a specific role based on their CV. This solution opens up new opportunities to explore and experiment with the prompts used to instruct the LLMs. Tweaking the prompt phrasing, providing more context, or altering the format of the request may lead to even more accurate and nuanced evaluations. This flexibility allows developers to tailor the LLM's responses to their specific needs, thereby enhancing the decision-making process in candidate selection.
+Now all that is left is running the program, which is done something like this:
 
-This solution also highlights the power of leveraging Large Language Models in real-world applications with relatively little code. With just a few lines, we can create a practical tool for assessing CVs in various job roles, showcasing the efficiency and versatility of LLMs. Furthermore, the adaptability of LLMs allows for the rapid development and deployment of similar solutions across a wide range of industries, paving the way for innovative applications and new business opportunities. Of course, this solution isn't ready for prime time but there is certainly a path to creating something useful.
+```bash
+export OPENAI_API_KEY="YOUR_API_KEY"
+python main.py WilliamsLinkedInProfile.pdf
+```
 
-Thank you, dear reader, for taking the time to explore the fascinating world of Large Language Models and their applications with us. We hope you found this journey both informative and inspiring. I encourage you to continue experimenting with LLMs, and we look forward to witnessing the incredible innovations that you'll undoubtedly contribute to this ever-evolving landscape. Until next time, happy coding, and may your AI-powered adventures be filled with discovery and success!
+This results in output looking like this:
+
+```
+===== Data Engineer =====
+
+Suitability: 4/5
+Reasoning: William has excellent technical skills, a solid background in distributed systems, databases and data science, and a Master of Science degree in Computer Science. He also has a lot of relevant experience in technical management and working on challenging projects. The only missing element is specific experience with Data Engineering, but his overall skill set and experience make him a strong candidate for the role.
+```
+
+With this, we have demonstrated how to build a simple solution for evaluating the suitability of a candidate's CV for different job roles using Large Language Models (LLMs). By combining text extraction, CV summarization, and candidate evaluation, we can efficiently and effectively assess a candidate's fit for a specific role based on their CV. This solution opens up new opportunities to explore and experiment with the prompts used to instruct the LLMs. Tweaking the prompt phrasing, providing more context, or altering the format of the request may lead to even more accurate and nuanced evaluations. This flexibility allows developers to tailor the LLM's responses to their specific needs.
+
+This solution also highlights the power of leveraging Large Language Models in real-world applications with relatively little code. With just a few lines, we can create a practical tool for assessing CVs in various job roles, showcasing the efficiency and versatility of LLMs. Furthermore, the adaptability of LLMs allows for the rapid development and deployment of similar solutions across a wide range of industries, paving the way for innovative applications and new business opportunities. Of course, these solutions aren't ready for prime time but there is certainly a path to creating something useful.
+
+Thanks for taking the time to explore the fascinating world of Large Language Models and their applications with me. I hope you found this journey both informative and inspiring and I encourage you to continue experimenting with LLMs. Until next time, happy coding, and may your AI-powered adventures be filled with discovery and success!
