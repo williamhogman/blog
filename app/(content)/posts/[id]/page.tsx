@@ -1,7 +1,14 @@
 import "highlight.js/styles/github.css";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { getAllPostIds } from "../../../../lib/posts";
 import { getData } from "./getData";
+export const dynamicParams = true;
+
+export async function generateStaticParams() {
+  const paths = await getAllPostIds();
+  return paths.map((id) => ({ id }));
+}
 
 export async function generateMetadata({
   params: { id },
