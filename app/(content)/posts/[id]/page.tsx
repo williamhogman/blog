@@ -1,17 +1,14 @@
 import "highlight.js/styles/github.css";
-import { GetStaticPaths, Metadata } from "next";
+import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import AboutTheAuthor from "../../../../components/AboutTheAuthor";
 import { getAllPostIds } from "../../../../lib/posts";
 import { getData } from "./getData";
 
-export const getStaticPaths: GetStaticPaths = async () => {
+export async function generateStaticParams() {
   const paths = await getAllPostIds();
-  return {
-    paths,
-    fallback: false,
-  };
-};
+  return paths.map((id) => ({ id }));
+}
 
 export async function generateMetadata({
   params: { id },
@@ -58,7 +55,7 @@ export default async function Post({ params: { id } }: PostProps) {
   }
   return (
     <>
-      <h1>{postData.title}</h1>
+      <h1 style={{ fontSize: "1.5em" }}>{postData.title}</h1>
       <time dateTime={date(postData.date)}>{date(postData.date)}</time>
       <div
         className="transparent"
