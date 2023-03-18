@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import AboutTheAuthor from "../../../../components/AboutTheAuthor";
 import { getAllPostIds } from "../../../../lib/posts";
 import { getData } from "./getData";
+export const dynamicParams = false;
 
 export async function generateStaticParams() {
   const paths = await getAllPostIds();

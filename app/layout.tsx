@@ -6,6 +6,13 @@ import "../styles/globals.css";
 export const metadata: Metadata = {
   title: { template: data.titleTemplate, default: data.defaultTitle },
   description: data.description,
+  alternates: {
+    types: {
+      "application/rss+xml": "/api/feed?format=rss",
+      "application/atom+xml": "/api/feed?format=atom",
+      "application/feed+json": "/api/feed?format=json",
+    },
+  },
 
   openGraph: {
     type: "website",
