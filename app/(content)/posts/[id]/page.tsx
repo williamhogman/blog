@@ -1,10 +1,9 @@
 import "highlight.js/styles/github.css";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import AboutTheAuthor from "../../../../components/AboutTheAuthor";
 import { getAllPostIds } from "../../../../lib/posts";
 import { getData } from "./getData";
-export const dynamicParams = false;
+export const dynamicParams = true;
 
 export async function generateStaticParams() {
   const paths = await getAllPostIds();
