@@ -55,7 +55,6 @@ export default async function Post({ params: { id } }: PostProps) {
         style={{ display: "contents" }}
         dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
       />
-      <AboutTheAuthor />
     </>
   );
 }
