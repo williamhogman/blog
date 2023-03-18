@@ -3,11 +3,10 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getAllPostIds } from "../../../../lib/posts";
 import { getData } from "./getData";
-export const dynamicParams = true;
-
+export const dynamicParams = false;
 export async function generateStaticParams() {
   const paths = await getAllPostIds();
-  return paths.map((id) => ({ id }));
+  return paths.map((p) => ({ id: p.params.id }));
 }
 
 export async function generateMetadata({
