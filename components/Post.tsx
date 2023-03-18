@@ -8,7 +8,15 @@ function Post({ post: { date, title, id, description } }: Props) {
   return (
     <>
       <Link href={`/posts/${id}`}>
-        <h3>{title}</h3>
+        <h3
+          style={{
+            fontSize: "1.25rem",
+            marginBottom: ".5rem",
+            fontWeight: 500,
+          }}
+        >
+          {title}
+        </h3>
       </Link>
       {date ? (
         <time dateTime={new Date(date).toISOString()}>
