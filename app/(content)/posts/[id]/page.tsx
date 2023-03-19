@@ -57,7 +57,7 @@ export default async function Post({ params: { id } }: PostProps) {
       <h1 style={{ fontSize: "1.5em" }}>{postData.title}</h1>
       <time dateTime={date(postData.date)}>{date(postData.date)}</time>
       <div
-        className="transparent"
+        className="transparent blog-text"
         style={{ display: "contents" }}
         dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
       />

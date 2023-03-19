@@ -1,6 +1,6 @@
-import styles from "./Bubble.module.css";
-import { PropsWithChildren } from "react";
 import classnames from "classnames";
+import { PropsWithChildren } from "react";
+import styles from "./Bubble.module.css";
 
 type Props = PropsWithChildren<{ className?: string }>;
 
