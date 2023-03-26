@@ -1,6 +1,7 @@
 ---
 title: Using GPT3.5 to summarize financial reports for your favorite stocks
-description:
+description: Discover how to create a time-saving solution for staying informed about your favorite stocks using unstructured.io, langchain, GPT-3.5, Python and some clever prompt engineering. Learn how to combine these technologies to effortlessly summarize lengthy investor documents, allowing you to quickly grasp key takeaways without investing too much time.
+
 date: 2023-03-26
 ---
 
