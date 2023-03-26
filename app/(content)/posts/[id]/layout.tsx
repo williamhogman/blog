@@ -2,7 +2,7 @@ import AboutTheAuthor from "../../../../components/AboutTheAuthor";
 
 const REMARK_42_SCRIPT_TAG = `
 var remark_config = {
-    host: 'https://comments.sobel.io/',
+    host: 'https://comments.sobel.io',
     site_id: 'wvst',
 }
 `;
