@@ -1,5 +1,6 @@
 ---
 title: "Making your LLM run Python code with `llm-chain-tools` in Rust"
+date: 2023-04-08
 description: |
   Unleash the power of your LLM to run Python code using llm-chain-tools in Rust! Learn how to create a custom Python tool that allows your language model to perform accurate mathematical operations and more. Dive into the step-by-step guide and explore the endless possibilities with this powerful combination. Proceed with caution, as with great power comes great responsibility!
 ---
