@@ -15,6 +15,25 @@ const nextConfig = {
       },
       {
         source:
+          "/posts/posts/building-a-kafka-backed-key-value-store-in-rust-part-2-implementation",
+        destination:
+          "/posts/building-a-kafka-backed-key-value-store-in-rust-part-2-implementation",
+        permanent: true,
+      },
+      {
+        source: "/post/20900428947/installing-meteor-on-archlinux",
+        destination: "/posts/installing-meteor-on-archlinux",
+        permanent: true,
+      },
+      {
+        source:
+          "/posts/posts/building-a-kafka-backed-key-value-store-in-rust-part-1-the-design",
+        destination:
+          "/posts/building-a-kafka-backed-key-value-store-in-rust-part-1-the-design",
+        permanent: true,
+      },
+      {
+        source:
           "/never-write-another-for-loop-replacing-java-8-for-loops-with-foreach-calls-using-the-stream-api-539b799172cc",
         destination:
           "/posts/Never-write-another-for-loop-Replacing-Java-8-for-loops-with-forEach-calls-using-the-Stream-API",
