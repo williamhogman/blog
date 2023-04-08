@@ -9,6 +9,11 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: "/post/69621609605/writing-good-react-components",
+        destination: "/posts/writing-good-react-components",
+        permanent: true,
+      },
+      {
         source:
           "/never-write-another-for-loop-replacing-java-8-for-loops-with-foreach-calls-using-the-stream-api-539b799172cc",
         destination:
