@@ -62,6 +62,7 @@ const nextConfig = {
       {
         source: "/posts/:id",
         destination: "https://sobel.io/blog/wvst/:id",
+        permanent: false,
       },
     ];
   },
