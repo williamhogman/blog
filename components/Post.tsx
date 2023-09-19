@@ -7,7 +7,7 @@ interface Props {
 function Post({ post: { date, title, id, description } }: Props) {
   return (
     <>
-      <Link href={`/posts/${id}`}>
+      <Link href={`https://sobel.io/blog/wvst/${id}`}>
         <h3
           style={{
             fontSize: "1.25rem",

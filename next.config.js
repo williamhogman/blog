@@ -59,6 +59,10 @@ const nextConfig = {
         destination: "/posts/k-means-clustering-in-r",
         permanent: true,
       },
+      {
+        source: "/posts/:id",
+        destination: "https://sobel.io/blog/wvst/:id",
+      },
     ];
   },
 };
