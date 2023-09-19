@@ -1,6 +1,6 @@
 import "highlight.js/styles/github.css";
 import { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { getAllPostIds } from "../../../../lib/posts";
 import { getData } from "./getData";
 export const dynamicParams = false;
@@ -47,11 +47,17 @@ function date(d: number): string {
   return new Date(d).toDateString();
 }
 
+const REDIR = true;
+
 export default async function Post({ params: { id } }: PostProps) {
   const { notFound: nf, postData } = await getData(id);
   if (nf) {
     return notFound();
   }
+  if (REDIR) {
+    redirect("https://sobel.io/blog/wvst/" + id);
+  }
+
   return (
     <>
       <h1 style={{ fontSize: "1.5em" }}>{postData.title}</h1>
